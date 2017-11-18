@@ -3,12 +3,12 @@ import {
   Platform,
   UIManager,
   View,
-  Text
 } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './src/reducers';
 import firebase from 'firebase';
+import LoginForm from './src/components/LoginFrom';
 
 export default class App extends Component {
   componentWillMount() {
@@ -29,9 +29,7 @@ export default class App extends Component {
     return (
       <Provider store={createStore(reducers)}>
         <View style={{ flex: 1 }}>
-          <Text>
-            Hellooo Dodooo!
-        </Text>
+          <LoginForm />
         </View>
       </Provider>
     );
