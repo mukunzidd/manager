@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {
   Platform,
-  UIManager,
-  View,
+  UIManager
 } from 'react-native';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import reducers from './src/reducers';
 import firebase from 'firebase';
+import ReduxThunk from 'redux-thunk';
 import LoginForm from './src/components/LoginFrom';
 
 export default class App extends Component {
@@ -26,11 +26,11 @@ export default class App extends Component {
 
   // Render App
   render() {
+    // {} is for any initial state that we might want to pass in
+    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     return (
-      <Provider store={createStore(reducers)}>
-        <View style={{ flex: 1 }}>
-          <LoginForm />
-        </View>
+      <Provider store={store}>
+        <LoginForm />
       </Provider>
     );
   }
