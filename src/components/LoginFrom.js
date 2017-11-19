@@ -80,7 +80,7 @@ const styles = {
 // Map state to props
 const mapStateToProps = state => {
     const { email, password, error, loading } = state.auth;
-    console.log(state);
+    // console.log(state);
     return {
         email: email,
         password: password,
