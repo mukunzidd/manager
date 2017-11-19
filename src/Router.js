@@ -10,7 +10,7 @@ const RouterComponent = () => {
                 <Scene key="root">
                     <Scene key="login" component={LoginForm} title="Log In Bruh!" />
                 </Scene>
-                <Scene key="main">
+                <Scene key="main" rightTitle="Add" onRight={() => console.log('Pressed Add bruh!')}>
                     <Scene key="employeeList" component={EmployeeList} title="Employees" />
                 </Scene>
             </Scene>
