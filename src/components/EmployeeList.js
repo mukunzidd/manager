@@ -20,4 +20,4 @@ const mapStateToProps = (state) => {
     return { employees: state.employees }
 };
 
-export default connect(null, { employeesFetch })(EmployeeList);
+export default connect(mapStateToProps, { employeesFetch })(EmployeeList);
