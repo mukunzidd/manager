@@ -5,7 +5,7 @@ import { Actions } from 'react-native-router-flux';
 
 class ListItem extends Component {
     onNamePress() {
-        Actions.employeeCreate({ employee: this.props.employee });
+        Actions.employeeEdit({ employee: this.props.employee });
     }
     render() {
         const { name, shift, phone } = this.props.employee;
@@ -13,7 +13,7 @@ class ListItem extends Component {
             <TouchableWithoutFeedback onPress={this.onNamePress.bind(this)}>
                 <View>
                     <CardSection>
-                        <Text style={amastile.nameStyle}>{name}</Text>
+                        <Text style={amastile.nameStyle}>{name} - {shift}</Text>
                     </CardSection>
                 </View>
             </TouchableWithoutFeedback>
