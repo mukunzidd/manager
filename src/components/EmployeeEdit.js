@@ -26,8 +26,11 @@ class EmployeeEdit extends Component {
         const { phone, shift } = this.props;
         Communications.text(phone, `Your working shift will be on ${shift}`);
     }
-    onFirePress() {
-        this.setState({ showModal: true })
+    onDecline() {
+        this.setState({ showModal: false })
+    }
+    onAccept() {
+
     }
     render() {
         console.log(this.props.employeeUpdate);
@@ -45,14 +48,14 @@ class EmployeeEdit extends Component {
                     </Button>
                 </CardSection>
                 <CardSection>
-                    <Button onPress={this.onFirePress.bind(this)}>
+                    <Button onPress={() => this.setState({ showModal: !this.state.showModal })}>
                         Fire Employee
                     </Button>
                 </CardSection>
                 <Confirm
                     visible={this.state.showModal}
-                    onAccept={() => console.log('Fired')}
-                    onDecline={() => console.log('Naaaaht fired')}
+                    onAccept={this.onAccept.bind(this)}
+                    onDecline={this.onDecline.bind(this)}
                 >
                     Are you outta ya mind u wanna fire him?
                 </Confirm>
